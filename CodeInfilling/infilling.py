@@ -6,14 +6,16 @@ from antlr4 import *
 from .antlr.Java8Lexer import Java8Lexer
 import itertools
 from .substitution_utils import is_suitable, gen_random_string
+import torch
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
 class CodeBERTProbing():
     def __init__(self, name, top_k):
         self.name = name
         self.top_k = top_k
         self.model = RobertaForMaskedLM.from_pretrained("microsoft/codebert-base-mlm")
         self.tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base-mlm")
-        self.fill_mask = pipeline('fill-mask', model=self.model, tokenizer=self.tokenizer, top_k=50)
+        self.fill_mask = pipeline('fill-mask', model=self.model, tokenizer=self.tokenizer, top_k=50, device=device)
     
     def predict(self, code, existing_var = []):
         outputs = self.fill_mask(code)
@@ -24,7 +26,7 @@ class CodeBERTProbing():
             for cand in candidates:
                 if cand not in filtered_candidates and is_suitable(cand, existing_var):
                     filtered_candidates.append(cand)
-            return filtered_candidates[:5]
+            return filtered_candidates[:self.top_k]
         except:
             occurences = {}
             
@@ -91,16 +93,21 @@ def generate_arrays(k, t):
     arrays = itertools.product(digits, repeat=k)  # Generate all possible combinations
     return list(arrays)
 
-def generate_combinations(substitute_candidate):
+
+def generate_combinations(substitute_candidate, top_k):
     list_keys = list(substitute_candidate.keys())
     number_of_vars = len(list_keys)
-    number_of_subs = len(list(substitute_candidate.values())[0])
+    number_of_subs = top_k
     valid_combinations = []
-    for combo in generate_arrays(number_of_vars, number_of_subs):
+    all_combinations = generate_arrays(number_of_vars, number_of_subs)
+    for combo in all_combinations:
         substitute_combinations = {}
         existing_subs = []
         is_valid = True
         for idx, key in enumerate(list_keys):
+            if combo[idx] >= len(substitute_candidate[key]):
+                is_valid = False
+                break
             curr_sub = substitute_candidate[key][combo[idx]]
             if curr_sub in existing_subs:
                 is_valid = False
@@ -109,7 +116,6 @@ def generate_combinations(substitute_candidate):
             substitute_combinations[key] = curr_sub
         if is_valid:
             valid_combinations.append([substitute_combinations, sum(combo)])
-    
     sorted_combinations = sorted(valid_combinations, key=lambda x: x[1])
     return sorted_combinations
 
@@ -125,13 +131,12 @@ def truncate_code(code, mask_token="<mask>", max_length=512):
     return truncated_code
 
 def llm_infilling(input_dir, output_dir):
-    top_k = 3
-    output_dirs = {}
+    top_k = 5
     
-    model = CodeBERTProbing("CodeBERT", 5)
+    model = CodeBERTProbing("CodeBERT", top_k)
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
-
-    for file in tqdm(files):
+    for file in tqdm(files, desc="Processing files"):
+        tqdm.write(f"Processing {file}")
         file_name = file[:-5]    
         path = os.path.join(input_dir, file)
         ori_code = open(path, 'r').read()
@@ -142,9 +147,9 @@ def llm_infilling(input_dir, output_dir):
             if t.startswith("___MASKED_"):
                 var = t[10:-3]
                 var_set.add(var)
-                
         if len(var_set) == 0:
             continue
+        
         
         substitute_candidate = {}
         existing_vars = set(tokens) | var_set
@@ -156,9 +161,9 @@ def llm_infilling(input_dir, output_dir):
                     masked_code = masked_code.replace("___MASKED_" + other_var + "___", other_var)
             masked_code = truncate_code(masked_code)
             substitute_candidate[curr_var] = model.predict(masked_code, existing_vars)
-        
-        combinations = generate_combinations(substitute_candidate)
-        for idx in range(top_k):
+
+        combinations = generate_combinations(substitute_candidate, top_k)
+        for idx in range(max(top_k, len(combinations))):
             subs = combinations[idx][0]
             new_code = ori_code 
             for var in var_set:

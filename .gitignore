@@ -10,3 +10,5 @@ CodeTransform/target/original-JavaTransformation-1.0-SNAPSHOT.jar
 data/*
 
 *.sh
+
+test.py
