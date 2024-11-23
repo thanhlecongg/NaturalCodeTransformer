@@ -79,7 +79,6 @@ def random_infilling(input_dir, output_dir):
 
         with open(new_path, 'w') as f:
             f.write(new_code)
-        exit()
 
 def antlr_tokenize(code):
     codeStream = InputStream(code)

@@ -12,3 +12,5 @@ data/*
 *.sh
 
 test.py
+
+.venv/*
