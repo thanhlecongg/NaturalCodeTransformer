@@ -52,9 +52,8 @@ def random_infilling(input_dir, output_dir):
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
 
     for file in tqdm(files):
+        tqdm.write(f"Processing {file}")
         file_name = file[:-5]    
-        print("============================")
-        print(file_name)
         new_path = os.path.join(output_dir, file_name + "_random.java")
 
         path = os.path.join(input_dir, file)
