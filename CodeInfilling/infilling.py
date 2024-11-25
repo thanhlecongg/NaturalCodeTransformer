@@ -134,8 +134,6 @@ def llm_infilling(input_dir, output_dir):
     model = CodeBERTProbing("CodeBERT", top_k)
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
     for file in tqdm(files, desc="Processing files"):
-        if file != "test_2067.java":
-            continue
         tqdm.write(f"Processing {file}")
         file_name = file[:-5]    
         path = os.path.join(input_dir, file)
