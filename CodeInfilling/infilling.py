@@ -130,7 +130,6 @@ def truncate_code(code, mask_token="<mask>", max_length=512):
 
 def llm_infilling(input_dir, output_dir):
     top_k = 5
-    
     model = CodeBERTProbing("CodeBERT", top_k)
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
     for file in tqdm(files, desc="Processing files"):

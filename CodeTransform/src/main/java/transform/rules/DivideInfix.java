@@ -10,6 +10,7 @@ import transform.Utils;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import transform.Config;
 
 public class DivideInfix extends ASTVisitor{
 	ArrayList targetLines;
@@ -54,6 +55,9 @@ public class DivideInfix extends ASTVisitor{
 		int cnt = 0;
 		boolean is_change = false;
 		for(InfixExpression theInfixExp: infixExpBin){
+			if (cnt >= Config.maxTrans){
+				break;
+			}
 			String theStringOftheType = theInfixExp.resolveTypeBinding().toString();
 			VariableDeclarationFragment tmpDecFra = ast.newVariableDeclarationFragment();
 			String newVarname = "___MASKED_tmp" + cnt + "___";
