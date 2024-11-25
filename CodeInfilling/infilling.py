@@ -134,6 +134,8 @@ def llm_infilling(input_dir, output_dir):
     model = CodeBERTProbing("CodeBERT", top_k)
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
     for file in tqdm(files, desc="Processing files"):
+        if file != "test_2067.java":
+            continue
         tqdm.write(f"Processing {file}")
         file_name = file[:-5]    
         path = os.path.join(input_dir, file)
@@ -161,7 +163,7 @@ def llm_infilling(input_dir, output_dir):
             substitute_candidate[curr_var] = model.predict(masked_code, existing_vars)
 
         combinations = generate_combinations(substitute_candidate, top_k)
-        for idx in range(max(top_k, len(combinations))):
+        for idx in range(min(top_k, len(combinations))):
             subs = combinations[idx][0]
             new_code = ori_code 
             for var in var_set:
