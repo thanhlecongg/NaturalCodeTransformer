@@ -27,13 +27,13 @@ def run_transform(args):
         print(output)
     print("Transform module completed")
     
-
 def run_infilling(args):
     os.makedirs(args.output_dir, exist_ok=True)
+    assert args.fill_type != "llm" or args.top_k is not None, "Top k must be provided for llm infilling" 
     if args.fill_type == 'random':
         random_infilling(args.input_dir, args.output_dir)
     elif args.fill_type == 'llm':
-        llm_infilling(args.input_dir, args.output_dir)
+        llm_infilling(args.input_dir, args.output_dir, args.top_k)
     else:
         print("Invalid fill type. Please select either random or llm")
 
@@ -55,7 +55,7 @@ def main():
     parser_infilling.add_argument('-i', '--input_dir', type=str, help='Input directory containing transformed programs')
     parser_infilling.add_argument('-o', '--output_dir', type= str, help='Output directory to store infilled programs')
     parser_infilling.add_argument('-f', '--fill_type', type=str, help='Type of infilling to apply. Options: random, llm')
-
+    parser_infilling.add_argument('-k', '--top_k', default= None, type=int, help='Top k candidates to consider for llm infilling')
     # Subparser for evaluation
     parser_evaluation = subparsers.add_parser('evaluation', help='Run evaluation module')
 

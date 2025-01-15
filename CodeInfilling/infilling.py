@@ -128,8 +128,7 @@ def truncate_code(code, mask_token="<mask>", max_length=512):
         truncated_code = code[max(0, mask_pos - (max_length - len(mask_token))):mask_pos + len(mask_token)]
     return truncated_code
 
-def llm_infilling(input_dir, output_dir):
-    top_k = 5
+def llm_infilling(input_dir, output_dir, top_k=5):
     model = CodeBERTProbing("CodeBERT", top_k)
     files = [f for f in os.listdir(input_dir) if f.endswith(".java")]
     for file in tqdm(files, desc="Processing files"):
