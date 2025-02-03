@@ -41,6 +41,8 @@ options:
                         Comma separated list of transform rules to apply
 ```
 
+For detailed mapping between rule ID and semantic-preserving transformation rule, please see [RULE](https://github.com/thanhlecongg/NaturalCodeTransformer/blob/main/RULE.md)
+
 ### Infilling
 
 To use infilling module, please use the following command:
