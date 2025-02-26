@@ -60,5 +60,23 @@ options:
                         Type of infilling to apply. Options: random, llm
 ```
 
+## Citations
+Please cite the following article if you find this tool to be useful:
 
+```
+@article{10.1145/3716167,
+author = {Le-Cong, Thanh and Nguyen, Thanh-Dat and Le, Bach and Murray, Toby},
+title = {Towards Reliable Evaluation of Neural Program Repair with Natural Robustness Testing},
+year = {2025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+issn = {1049-331X},
+url = {https://doi.org/10.1145/3716167},
+doi = {10.1145/3716167},
+note = {Just Accepted},
+journal = {ACM Trans. Softw. Eng. Methodol.},
+month = feb,
+}
+```
 
+In addition, kindly ensure that [SPAT](https://github.com/Santiago-Yu/SPAT) is acknowledged in accordance with the guidelines provided.
