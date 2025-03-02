@@ -41,7 +41,27 @@ options:
                         Comma separated list of transform rules to apply
 ```
 
-For detailed mapping between rule ID and semantic-preserving transformation rule, please see [RULE](https://github.com/thanhlecongg/NaturalCodeTransformer/blob/main/RULE.md)
+For a detailed mapping between rule IDs and semantic-preserving transformation rules, please refer to [RULE](https://github.com/thanhlecongg/NaturalCodeTransformer/blob/main/RULE.md).
+
+The information file is a JSON file that contains a list of dictionaries, each providing details about the target programs. The structure of the information file is as follows:
+
+```
+[
+    {
+        "instanceId": "Data1",
+        "sourceFile": "data/methods/Data1.java",
+        "targetLines": []
+    },
+    {
+        "instanceId": "Data2",
+        "sourceFile": "data/methods/Data2.java",
+        "targetLines": []
+    },
+    ...
+]
+```
+
+In this template, `"instanceId"` represents the name of the Java file, `"sourceFile"` specifies the path to the corresponding `.java` file, and `"targetLines"` contains the lines of code targeted for transformation. By default, `"targetLines"` is an empty list, indicating that all lines in the file will be considered for transformation. However, if specific lines are specified, the tool will restrict transformations to the declared target lines.
 
 ### Infilling
 
