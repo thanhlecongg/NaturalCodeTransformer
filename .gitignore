@@ -3,6 +3,7 @@
 CodeTransform/target/*
 CodeTransform/target/original-JavaTransformation-1.0-SNAPSHOT.jar
 !CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar
+results/*
 
 ### Mac OS ###
 .DS_Store

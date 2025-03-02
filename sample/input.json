@@ -1,0 +1,12 @@
+[
+    {
+        "instanceId": "Data1",
+        "sourceFile": "sample/code/Data1.java",
+        "targetLines": []
+    },
+    {
+        "instanceId": "Data2",
+        "sourceFile": "sample/code/Data1.java",
+        "targetLines": []
+    }
+]

@@ -80,6 +80,15 @@ options:
                         Type of infilling to apply. Options: random, llm
 ```
 
+### Example Usage
+
+Please use data provide in `sample` folder to run an example of our tool. 
+
+1. Generate transformation with `CodeTransform` by using
+```
+python3 main.py transform -i sample/input.json -o results -r all
+```
+
 ## Citations
 Please cite the following article if you find this tool to be useful:
 
