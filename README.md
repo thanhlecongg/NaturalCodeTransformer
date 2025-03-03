@@ -88,6 +88,286 @@ Please use data provide in `sample` folder to run an example of our tool.
 ```
 python3 main.py transform -i sample/input.json -o results -r all
 ```
+Transformed programs are stored at results/rules_{i} for i-th rule and expected logs should be:
+```
+Running transform module
+Info path:  sample/input.json
+Output directory:  results
+Applying all transform rules
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_1/ -r 1 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+Whole file is parsed! begin rewriting
+Whole file is parsed! begin rewriting
+==>result is replaced by ___MASKED_result
+==>nums is replaced by ___MASKED_nums
+==>result is replaced by ___MASKED_result
+==>nums is replaced by ___MASKED_nums
+==>i is replaced by ___MASKED_i
+==>i is replaced by ___MASKED_i
+==>indices is replaced by ___MASKED_indices
+==>indices is replaced by ___MASKED_indices
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_1/Data1.java      reWrited successfully!
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_1/Data1.java      reWrited successfully!
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_2/ -r 2 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_2/Data1.java      reWrited successfully!
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_2/Data1.java      reWrited successfully!
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_3/ -r 3 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_4/ -r 4 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_5/ -r 5 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_6/ -r 6 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_7/ -r 7 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_8/ -r 8 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_9/ -r 9 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_10/ -r 10 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_11/ -r 11 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_12/ -r 12 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_13/ -r 13 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+Whole file is parsed! begin rewriting
+Whole file is parsed! begin rewriting
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_14/ -r 14 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_15/ -r 15 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_16/ -r 16 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_17/ -r 17 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_18/ -r 18 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+class org.eclipse.jdt.core.dom.PostfixExpression
+class org.eclipse.jdt.core.dom.PostfixExpression
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_19/ -r 19 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_20/ -r 20 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_21/ -r 21 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_22/ -r 22 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+
+Running command:  java -jar CodeTransform/target/JavaTransformation-1.0-SNAPSHOT.jar -o /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_23/ -r 23 -f /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/input.json
+Code Transform
+Processing: Data1
+Processing: Data2
+Processing: Data1
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Processing: Data2
+File path: /data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/sample/code/Data1.java
+Parsing code...
+Parsing code...
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_23/Data1.java     reWrited successfully!
+/data/gpfs/projects/punim1928/APR/NaturalCodeTransformer/results/rule_23/Data1.java     reWrited successfully!
+```
+
 
 ## Citations
 Please cite the following article if you find this tool to be useful:
