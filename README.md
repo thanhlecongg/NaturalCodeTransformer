@@ -18,7 +18,7 @@ Python 3.10
 ### Python Enviroments
 
 ### Re-build Java Transformation
-If you want to rebuild `CodeTransform` module, please use the following command:
+If you want to rebuild `CodeTransform` module, please use the following command within `CodeTransform` folder:
 ```
 mvn clean package
 ```
