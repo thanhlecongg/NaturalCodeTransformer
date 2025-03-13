@@ -24,6 +24,6 @@ Currently, our tool support 23 semantic-preserving transformation operators in t
 | 18  | DividePrePostFix             | Separates pre/postfix expression into explicit statements. |
 | 19  | DividingComposedIf           | Breaks down a complex `if` condition into multiple conditions. |
 | 20  | LoopIfContinue2Else          | Converts a `continue` inside a loop into an `else` branch. |
-| 21  | SwitchEqualExp               | Modifies a `switch` expression based on equality comparisons. |
-| 22  | SwitchStringEqual            | Converts a `switch` on strings into equivalent `if-else` conditions. |
-| 23  | SwitchRelation               | Transforms a `switch` statement based on relational operators. |
+| 21  | SwitchEqualExp               | Switch two sides of equality expression. |
+| 22  | SwitchStringEqual            | Switch two sides of String equality. |
+| 23  | SwitchRelation               | Switch two sides of relation expressional. |
